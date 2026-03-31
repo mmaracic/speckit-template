@@ -1,6 +1,8 @@
 # README
 
-The goal of the project is to build a websita that would have python backend and react frontend using the specification driven development approach, more specificly speckit framework.
+Project demonstrates speckit setup flow on a development project (both greenfield and brownfield) including extensions.
+
+Each commit is trying to represent one of the steps in the setup process outlined below.
 
 ## Project related folder structure
 
@@ -69,7 +71,14 @@ Use `/speckit.plan` command to generate implementation plan based on the specifi
 ```
 
 ## Problems
+* Constitution template is optimized for summarization, not extraction fidelity. It has only 5 principle placeholders and 2 generic sections.
 * If points from role file are not mandatory, they are often skipped or not fully addressed. This leads to incomplete constitution and architectural drift. Solution would be to make all points mandatory and require explicit confirmation in the plan checklist that they addressed. This would ensure that all important architectural decisions are made consciously and documented, reducing the risk of drift and misalignment.
+* There is no required “source-to-constitution traceability table” placeholder in constitution-template.
+* There is no dedicated placeholder for plan-gate checklist carryover from role files n constitution-template.
+* There is no placeholder for unresolved mandatory bullets (for example, a FAIL/TODO list) in constitution-template, so omissions can pass silently.
+* “Mandatory” at bullet level tells the generator not to skip the item. But inside the item, phrases like “recommend”, “can”, “good default” still signal soft choice, so the model may preserve intent but rewrite/compress details.
+* Bullets in the constitution-architect do not have stable IDs (for example ARCH-001), so one-to-one mapping is hard to enforce.
+* Section 2 checklist items in constitution-architect are not marked mandatory and are phrased as questions, so they are treated as prompts rather than constitutional obligations.
 
 ## Errors
 * While running `/speckit.constitution` bug https://github.com/github/spec-kit/issues/908 was encountered. Constitution was generated and templates updated, so it seems to be only an inconvenience.
