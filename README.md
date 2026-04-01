@@ -79,6 +79,7 @@ Use `/speckit.plan` command to generate implementation plan based on the specifi
 * “Mandatory” at bullet level tells the generator not to skip the item. But inside the item, phrases like “recommend”, “can”, “good default” still signal soft choice, so the model may preserve intent but rewrite/compress details.
 * Bullets in the constitution-architect do not have stable IDs (for example ARCH-001), so one-to-one mapping is hard to enforce.
 * Section 2 checklist items in constitution-architect are not marked mandatory and are phrased as questions, so they are treated as prompts rather than constitutional obligations.
+* It doesnt matter which file is changed - constitution-template or constitution-architect but it is always better to change role file over which we have full ownership to avoid future conflicts with speckit, LLM does not use any inherent precedence rules.
 
 ## Errors
 * While running `/speckit.constitution` bug https://github.com/github/spec-kit/issues/908 was encountered. Constitution was generated and templates updated, so it seems to be only an inconvenience.
