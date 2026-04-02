@@ -2,19 +2,20 @@
 
 Project demonstrates speckit setup flow on a development project (both greenfield and brownfield) including extensions.
 
-Each commit is trying to represent one of the steps in the setup process outlined below.
+Project implements speckit process using Github Copilot.
 
 ## Project related folder structure
 
 ```text
 speckit-vote/
+├── .github/         # Folder with Github Copilot specific agents, skills and instructions
 ├── role-files/      # Folder with role files with constitution checklists
 ├── role-templates/  # Folder with role templates with constitution questions
 ├── documentation/   # Folder for project documentation
 ├── .gitignore       # Standard gitignore file with .specify/ folder ignored
 └── README.md        # This file
 ```
-
+Copilot agent named `speckit-role-generator.agent.md` is created to help with generating role and role-template files.
 
 ## Steps to setup and use speckit in a project
 
