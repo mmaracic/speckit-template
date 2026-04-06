@@ -20,7 +20,7 @@ Every mandatory bullet with an `ARCH-` or `ARCH-CHECK-` ID must be copied into t
 - **MANDATORY:** [ARCH-001] **Repository structure**: Use Monorepo when a high degree of coupling between components and a single team works on them. Use Polyrepo when components are expected to be independently deployable or reusable across projects or multiple teams work on them.
 - **MANDATORY:** [ARCH-002] **Overall style**: Always use modular style. Use Modular Monolith for simplicity and ease of development when the system is not expected to grow beyond a certain complexity. Use Microservices for large, complex systems with clear bounded contexts and the need for independent scalability or deployment. Use service based architecture as a middle ground when some modularity, scalability and independent deployment is desired but speed is a priority too.
 - **MANDATORY:** [ARCH-003] **API style**: Use REST when simple and widely supported approach is needed. GraphQL is beneficial when clients need flexible queries and to minimize over-fetching. gRPC is ideal for high-performance, low-latency communication between internal services. Use hybrid approaches when different API styles are needed for different use cases (e.g., REST for public API, gRPC for internal services).
-- **MANDATORY:** [ARCH-004] **Frontend/backend coupling**: Fully decoupled architectures (separate deployments) are used for larger applications with distinct frontend and backend teams, or when the frontend needs to be reusable across multiple platforms (web, mobile). Server-rendered (SSR/hybrid) architectures are used for smaller applications or when SEO is a concern, but may introduce tighter coupling between frontend and backend.
+- **MANDATORY:** [ARCH-004] **Frontend/backend coupling**: Use fully decoupled architectures (separate deployments) for larger applications with distinct frontend and backend teams, or when the frontend must be reusable across multiple platforms (web, mobile). Use server-rendered (SSR/hybrid) architectures for smaller applications or when SEO is a concern, but account for the tighter coupling between frontend and backend this introduces.
 - **MANDATORY:** [ARCH-005] **Background processing**: Use background processing for long-running or resource-intensive tasks that do not need to be completed within the request-response cycle. Choose a task queue (e.g., Celery, ARQ) based on language and ecosystem compatibility, ease of use, and scalability requirements.
 
 ---
@@ -104,7 +104,7 @@ Every mandatory bullet with an `ARCH-` or `ARCH-CHECK-` ID must be copied into t
 ### 10. Security Architecture
 
 - **MANDATORY:** [ARCH-052] **Transport**: Use TLS everywhere. Use Let's Encrypt if no provider-managed TLS is available.
-- **MANDATORY:** [ARCH-053] **Input validation**: Where is validation enforced — API boundary, domain layer, or both?
+- **MANDATORY:** [ARCH-053] **Input validation**: Validation must be enforced at the API boundary at minimum; define explicitly whether it is also enforced at the domain layer, and document the rationale.
 - **MANDATORY:** [ARCH-054] **Query parameter sanitisation**: Use ORM parameterised queries to prevent SQL injection; raw SQL queries must be audited.
 - **MANDATORY:** [ARCH-055] **CORS policy**: Use restrictive CORS policy in all environments, with explicit allowed origins. Avoid wildcard `*` in production.
 - **MANDATORY:** [ARCH-056] **Dependency scanning**: Automated CVE scanning in CI.

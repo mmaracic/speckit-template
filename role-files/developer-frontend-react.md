@@ -66,7 +66,7 @@ Every mandatory bullet with an `FE-` or `FE-CHECK-` ID must be copied into the g
 - **MANDATORY:** [FE-019] **Hooks**: Create a dedicated folder for custom hooks
 - **MANDATORY:** [FE-020] **Model folder**: Create a dedicated folder for shared TypeScript types and interfaces
 - **MANDATORY:** [FE-021] **Import conventions**: Absolute imports from `src/` only,
-- **MANDATORY:** [FE-022] **Effect hook**: Use `useEffect` for side effects, but prefer custom hooks for complex logic and data fetching.
+- **MANDATORY:** [FE-022] **Effect hook**: Minimize the use of `useEffect` for side effects.
 - **MANDATORY:** [FE-023] **Component types**: Use function components with React.FC or explicit prop types, avoid class components.
 - **MANDATORY:** [FE-024] **File content**: One component per file, with the filename matching the component name. Model and API files can export multiple related types/interfaces.
 - **MANDATORY:** [FE-025] **Refs**: Do not use refs hooks.

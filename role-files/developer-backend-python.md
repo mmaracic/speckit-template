@@ -94,7 +94,7 @@ Every mandatory bullet with an `BE-` or `BE-CHECK-` ID must be copied into the g
 - **MANDATORY:** [BE-040] **HTTP client for tests**: Use `requests`.
 - **MANDATORY:** [BE-041] **Minimum coverage**: Target 90% code coverage, with no critical paths (e.g. business logic, data access) below 80%.
 - **MANDATORY:** [BE-042] **Test categories**: Use Unit and integration tests, with clear guidelines on what belongs in each category.
-- **MANDATORY:** [BE-043] **Edge cases**: Focus on testing individual functions and methods in isolation, using mocks for external dependencies. Should be fast and cover edge cases and error handling.
+- **MANDATORY:** [BE-043] **Edge cases**: Unit tests must test individual functions and methods in isolation using mocks for external dependencies. Tests must be fast and must cover edge cases and error handling.
 
 ---
 
@@ -223,3 +223,4 @@ Every mandatory bullet with an `BE-` or `BE-CHECK-` ID must be copied into the g
 - [ ] [BE-CHECK-073] Are circular dependencies between modules and layers avoided?
 - [ ] [BE-CHECK-074] Are appropriate design patterns (factory, singleton, strategy, observer, etc.) applied to solve common problems and improve maintainability?
 - [ ] [BE-CHECK-075] Do unit tests focus on individual functions and methods in isolation, use mocks for external dependencies, run fast, and cover edge cases and error handling?
+- [ ] [BE-CHECK-076] Do all the databases have defined provider (e.g., PostgreSQL, MySQL) and type (e.g., relational, NoSQL)?

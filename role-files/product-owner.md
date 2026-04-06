@@ -17,7 +17,7 @@ Every mandatory bullet with an `PO-` or `PO-CHECK-` ID must be copied into the g
 ## 1. Mandatory Constitution principles
 ### 1. Product Vision
 
-- **MANDATORY:** [PO-001] **One-liner**: Describe what is this product? Who is it for? What problem does it solve?
+- **MANDATORY:** [PO-001] **One-liner**: Must describe what the product is, who it is for, and what problem it solves.
   > _e.g. "A developer productivity tool that helps teams track specification changes across sprints."_
 - **MANDATORY:** [PO-002] **Success definition**: Define what "done" looks like from a business perspective.
   > _e.g. "Success is defined as achieving 10,000 active users within the first 6 months, with a user satisfaction score of at least 4.5 out of 5."_
@@ -28,9 +28,9 @@ Every mandatory bullet with an `PO-` or `PO-CHECK-` ID must be copied into the g
 
 ### 2. Target Audience
 
-- **MANDATORY:** [PO-004] **Primary users**: Define who are the primary users? (role, technical level, geography)
-- **MANDATORY:** [PO-005] **Secondary user groups**: Define if there are secondary user groups (admins, guests, API consumers)?
-- **MANDATORY:** [PO-006] **Language / locale support**: Define if the product needs to support multiple languages or locales?
+- **MANDATORY:** [PO-004] **Primary users**: Define who the primary users are (role, technical level, geography).
+- **MANDATORY:** [PO-005] **Secondary user groups**: Define whether there are secondary user groups (admins, guests, API consumers), or explicitly state there are none.
+- **MANDATORY:** [PO-006] **Language / locale support**: Define whether the product must support multiple languages or locales, or explicitly state that only a single locale is required.
 
 ---
 
@@ -38,8 +38,8 @@ Every mandatory bullet with an `PO-` or `PO-CHECK-` ID must be copied into the g
 
 - **MANDATORY:** [PO-007] **Deadline / milestone**: Define if there is a hard delivery date or external event driving the timeline.
 - **MANDATORY:** [PO-008] **Budget**: Define if there are hosting, licensing, or third-party service cost ceilings.
-- **MANDATORY:** [PO-009] **Compliance**: Define if there are legal, regulatory, or data-privacy requirements (GDPR, HIPAA, etc.)?
-- **MANDATORY:** [PO-010] **Branding**: Define if the product must conform to an existing brand guide or design system?
+- **MANDATORY:** [PO-009] **Compliance**: Define whether there are legal, regulatory, or data-privacy requirements (GDPR, HIPAA, etc.), or explicitly state there are none.
+- **MANDATORY:** [PO-010] **Branding**: Define whether the product must conform to an existing brand guide or design system, or explicitly state there are no branding constraints.
 
 ---
 
