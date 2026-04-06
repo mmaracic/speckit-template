@@ -1,6 +1,6 @@
 # Architect Guidelines & Constraints
 
-First section of this document captures architect constitution principles to be used when generating the project constitution via `speckit.constitution`. Second section defines the gate checklists. Here there is only one checklist and it applies to the plan speckit step.
+First section of this document captures architect constitution principles to be used when generating the project constitution via `speckit.constitution`. Second section captures project-specific overrides and additions. Third section defines the gate checklists. Here there is only one checklist and it applies to the plan speckit step.
 Every mandatory bullet with an `ARCH-` or `ARCH-CHECK-` ID must be copied into the generated constitution and downstream plan checks with one-to-one traceability. Mandatory bullets must not be skipped, merged away, or summarized.
 ---
 
@@ -134,7 +134,13 @@ Every mandatory bullet with an `ARCH-` or `ARCH-CHECK-` ID must be copied into t
 - **MANDATORY:** [ARCH-069] Diagrams must be clear, concise and easy to understand, providing a visual representation of the architecture that complements the written documentation and ADRs.
 - **MANDATORY:** [ARCH-070] Diagrams must minimise the number of intersections and overlapping lines and objects to ensure readability. They should use consistent symbols and notation to represent different types of components and interactions.
 
-## 2. Gate Checklists
+## 2. Project-Specific Principles
+
+_Add project-specific overrides or additions to the principles in Section 1. Use the same MANDATORY bullet format with sequential `[ARCH-NNN]` IDs. Leave this section empty if there are no project-specific constraints._
+
+---
+
+## 3. Gate Checklists
 ### 1. Plan Gate Checklist
 - [ ] [ARCH-CHECK-001] What is the chosen architecture style (monolith, microservices, service-based) and why?
 - [ ] [ARCH-CHECK-002] What architectural characteristics and constraints are most relevant for each application and service (e.g., modularity, scalability, deployment independence, reliability, high availability)?

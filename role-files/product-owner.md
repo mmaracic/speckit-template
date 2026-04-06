@@ -1,6 +1,6 @@
  # Product Owner Guidelines & Constraints
 
-First section of this document captures product owner constitution principles to be used when generating the project constitution via `speckit.constitution`. Second section defines the gate checklists. Here there is only one checklist and it applies to the specify speckit step.
+First section of this document captures product owner constitution principles to be used when generating the project constitution via `speckit.constitution`. Second section captures project-specific overrides and additions. Third section defines the gate checklists. Here there is only one checklist and it applies to the specify speckit step.
 Every mandatory bullet with an `PO-` or `PO-CHECK-` ID must be copied into the generated constitution and downstream plan checks with one-to-one traceability. Mandatory bullets must not be skipped, merged away, or summarized.
 ---
 
@@ -94,8 +94,15 @@ Every mandatory bullet with an `PO-` or `PO-CHECK-` ID must be copied into the g
 
 - **MANDATORY:** [PO-031] **Risks and assumptions**: List known risks and the assumptions being made.
 
+---
 
-## 2. Gate Checklists
+## 2. Project-Specific Principles
+
+_Add project-specific overrides or additions to the principles in Section 1. Use the same MANDATORY bullet format with sequential `[PO-NNN]` IDs. Leave this section empty if there are no project-specific constraints._
+
+---
+
+## 3. Gate Checklists
 ### 1. Specify Gate Checklist
 
 - [ ] [PO-CHECK-001] Is a one-liner provided that describes what the product is, who it is for, and what problem it solves?

@@ -46,8 +46,9 @@ Rules:
 4. Use a 2–4 letter ID prefix derived from the role name (e.g. `PO` for Product Owner, `BE` for Backend Developer, `FE` for Frontend Developer, `ARCH` for Architect)
 5. Number IDs sequentially within the file starting from `001`
 6. Group principles into numbered `##` sections with clear headings
-7. After all principle sections, add **`## 2. Gate Checklists`** with one `###` subsection per workflow step that requires verification (e.g. `### 1. Plan Gate Checklist`, `### 2. Spec Gate Checklist`). Each checklist item is a checkbox (`- [ ]`) with a stable ID `[XX-CHECK-NNN]` and a question that verifies a corresponding constitution principle was addressed at that step. IDs are numbered sequentially across all checklists in the file. Cover each major section from Section 1 with at least one check item. Add a checklist subsection only when the role has meaningful verification needs for that step; omit steps that are not applicable. Model this after the `## 2. Gate Checklists` section in `role-files/architect.md`
-8. File name: `role-files/{role-slug}.md`
+7. After Section 1, add **`## 2. Project-Specific Principles`** as a placeholder section where project teams add project-specific overrides or additions to the mandatory principles in Section 1. Each item must follow the same MANDATORY bullet format with sequential `[XX-NNN]` IDs. Include the instruction: _Add project-specific overrides or additions to the principles in Section 1. Use the same MANDATORY bullet format with sequential `[XX-NNN]` IDs. Leave this section empty if there are no project-specific constraints._
+8. After Section 2, add **`## 3. Gate Checklists`** with one `###` subsection per workflow step that requires verification (e.g. `### 1. Plan Gate Checklist`, `### 2. Spec Gate Checklist`). Each checklist item is a checkbox (`- [ ]`) with a stable ID `[XX-CHECK-NNN]` and a question that verifies a corresponding constitution principle was addressed at that step. IDs are numbered sequentially across all checklists in the file. Cover each major section from Section 1 with at least one check item. Add a checklist subsection only when the role has meaningful verification needs for that step; omit steps that are not applicable. Model this after the `## 3. Gate Checklists` section in `role-files/architect.md`
+9. File name: `role-files/{role-slug}.md`
 
 ## Approach
 
