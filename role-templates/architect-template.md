@@ -28,6 +28,7 @@ Answer or refine each section before running the constitution agent.
 - Is there a shared domain library between frontend and backend (e.g. OpenAPI-generated types)?
 - Are cross-cutting concerns (logging, auth, error handling) centralised or per-module?
 - **Dependency direction rules**: Which layers are allowed to depend on which? (e.g. domain must not import infrastructure)
+- **Architecture as code**: Will architecture-as-code tooling be used to enforce and document layer and module constraints (e.g., ArchUnit, Dependency Cruiser)?
 - **Interface / contract format**: Is the API contract defined as an OpenAPI spec, GraphQL schema, or derived from code?
 - **Error handling strategy**: Are errors mapped to domain types at the boundary, or propagated as-is from infrastructure?
 
@@ -75,7 +76,20 @@ Answer or refine each section before running the constitution agent.
 
 ---
 
-## 6. Infrastructure & Deployment
+## 6. Events and Messaging
+
+- **Event-driven architecture**: Is event-driven communication required? Which services or components will communicate asynchronously via events?
+- **Message broker**: Which message broker will be used (Kafka, RabbitMQ, Azure Service Bus, Redis Streams)?
+- **Event versioning**: How will backward compatibility of events be maintained when schemas change?
+- **Event storage**: Should events be persisted in an event store or database for auditing and replay purposes?
+- **Idempotent consumers**: Are event handlers designed to be idempotent? What is the retry and deduplication strategy for failed event processing?
+- **Scaling event processing**: How will event processing be scaled (consumer groups, partitioning)? What are the expected load levels and known scaling bottlenecks?
+- **Eventual consistency**: Which workflows rely on eventual consistency, and are there critical flows that require strong consistency guarantees instead?
+- **Event structure**: What standard structure will events follow (metadata fields, payload format)? Where will event schemas be stored (e.g., `events.md`, schema registry)?
+
+---
+
+## 7. Infrastructure & Deployment
 
 - **Containerisation**: Docker mandatory? Docker Compose for local dev? Serverless or PaaS options acceptable?
 - **Cloud provider**: AWS, Azure, GCP, or cloud-agnostic?
@@ -92,7 +106,7 @@ Answer or refine each section before running the constitution agent.
 
 ---
 
-## 7. Observability
+## 8. Observability
 
 - **Logging**: Structured JSON logs? Log aggregation platform (Datadog, Loki, CloudWatch)?
 - **Metrics**: Prometheus + Grafana, or cloud-native monitoring?
@@ -105,10 +119,23 @@ Answer or refine each section before running the constitution agent.
 
 ---
 
-## 8. Security Architecture
+## 9. AI
+
+- **LLM / model provider**: Which AI model or provider will be used (e.g., OpenAI, Azure OpenAI, Anthropic)? Is provider independence required?
+- **AI abstraction layer**: Will an abstraction library (e.g., LiteLLM, LangChain, Semantic Kernel) be used to avoid vendor lock-in?
+- **AI tracing and monitoring**: How will AI interactions (prompts, responses, latency, costs) be logged, traced, and monitored?
+- **Use-case justification**: Which tasks are delegated to AI, and is there a clear justification that they cannot be solved with simpler approaches?
+- **Evaluation and testing**: How will AI outputs be evaluated (unit tests for deterministic outputs, benchmarks, human review for non-deterministic outputs)?
+- **Human in the loop**: Is there a mechanism for human review and override of AI outputs in production workflows?
+- **Data privacy for AI**: How is sensitive or PII data handled before being sent to AI providers? Is anonymisation or redaction required?
+
+---
+
+## 10. Security Architecture
 
 - **Transport**: TLS everywhere? Certificate management (Let's Encrypt, ACM)?
 - **Input validation**: Where is validation enforced — API boundary, domain layer, or both?
+- **Query parameter sanitisation**: Are ORM parameterised queries enforced to prevent SQL injection? Are raw SQL queries audited?
 - **Rate limiting / throttling**: Required at API gateway or application level?
 - **CORS policy**: Which origins are allowed?
 - **Dependency scanning**: Automated CVE scanning in CI (Dependabot, Snyk, Trivy)?
@@ -119,7 +146,7 @@ Answer or refine each section before running the constitution agent.
 
 ---
 
-## 9. Scalability & Resilience
+## 11. Scalability & Resilience
 
 - **Horizontal scaling**: Are stateless services assumed? Session affinity needed?
 - **Database connection pooling**: PgBouncer, built-in pool, or ORM-managed?
@@ -131,7 +158,7 @@ Answer or refine each section before running the constitution agent.
 
 ---
 
-## 10. Data Privacy & Compliance
+## 12. Data Privacy & Compliance
 
 - **GDPR / data-privacy law**: Which jurisdictions apply? Is a Data Processing Agreement (DPA) required?
 - **PII inventory**: Which fields are classified as personally identifiable information?
@@ -142,7 +169,7 @@ Answer or refine each section before running the constitution agent.
 
 ---
 
-## 11. Developer Experience
+## 13. Developer Experience
 
 - **Local dev setup**: Single command to start all services (Docker Compose, Makefile, `just`)?
 - **Port conventions**: Agreed localhost ports for API, frontend, database, cache?
@@ -152,7 +179,7 @@ Answer or refine each section before running the constitution agent.
 
 ---
 
-## 12. Architecture Decision Records (ADRs)
+## 14. Architecture Decision Records (ADRs)
 
 - Will ADRs be maintained in the repository? If so, which folder?
 - How are architectural decisions reviewed and approved?
@@ -160,7 +187,17 @@ Answer or refine each section before running the constitution agent.
 
 ---
 
-## 13. Open Questions
+## 15. Architecture Diagrams
+
+- **Required diagram types**: Which diagrams are required (e.g., high-level system architecture, deployment architecture, sequence diagrams, data flow diagrams)?
+- **Diagram format**: What format will be used for diagrams (Mermaid, PlantUML, draw.io, C4 model)?
+- **Storage location**: Where will diagrams be stored in the repository (e.g., `diagrams/` folder)?
+- **Diagram update process**: When and how will diagrams be updated (e.g., as part of the ADR process, during architecture reviews, after implementation changes)?
+- **Deployment diagram scope**: Should the deployment diagram include cloud provider specifics (regions, managed services, VPCs, networking)?
+
+---
+
+## 16. Open Questions
 
 Questions that must be answered before the constitution can be finalised:
 

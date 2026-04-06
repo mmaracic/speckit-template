@@ -67,8 +67,16 @@ Answer or refine each section before running the constitution agent.
 
 - **Linter**: ESLint with which ruleset (airbnb, standard, recommended)?
 - **Formatter**: Prettier? Shared config committed to the repo?
-- **Import ordering**: Enforced via eslint-plugin-import or similar?
-- **Component file structure**: One component per file? Co-located test files?
+- **Import ordering**: Enforced via eslint-plugin-import or similar? Absolute imports from `src/` only?
+- **Page folder structure**: Is there a `src/pages` directory with a dedicated file for each page?
+- **Component folder structure**: Is there a `src/components` directory where each component has its own folder with the component file, styles, and tests co-located?
+- **API layer folder**: Is there a dedicated folder for API client code?
+- **Hooks folder**: Is there a dedicated folder for custom hooks?
+- **Model / types folder**: Is there a dedicated folder for shared TypeScript types and interfaces?
+- **Component file structure**: One component per file, filename matching component name? Co-located test files?
+- **Component types**: Are all components function components using React.FC or explicit prop types? Are class components forbidden?
+- **Effect hook policy**: Is the use of `useEffect` minimised? Are side effects handled via custom hooks instead?
+- **Refs policy**: Are ref hooks (`useRef`) avoided or restricted to specific use cases?
 - **Naming conventions**: PascalCase components, camelCase hooks, kebab-case files?
 - **Barrel exports (`index.ts`)**: Allowed or discouraged?
 

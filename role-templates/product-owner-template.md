@@ -31,7 +31,17 @@ Answer or refine each section before running the constitution agent.
 
 ---
 
-## 4. Feature Priorities (MVP vs. Later)
+## 4. Features
+
+- **Feature scope / ambiguity**: Are all features unambiguously defined and scoped to avoid misinterpretation during implementation?
+- **Actor-Action-Outcome format**: Is each feature described using: who (actor) needs to do what (action), under what condition (context), and what the expected outcome is?
+  > _e.g. "As a registered user, I want to receive an email notification when a new comment is added to my post, so that I can respond to it."_
+- **Workflows**: For features with multiple steps or states, is there a workflow definition covering all steps, states, transitions, inputs, outputs, and stop conditions?
+  > _e.g. "Submit support ticket → 'Open'; team reviews → 'In Progress'; resolved → 'Closed' + notification sent."_
+- **Error handling**: For each feature, how are errors and edge cases handled?
+  > _e.g. "If the email service is down, retry up to 3 times with exponential backoff; log failure if all attempts fail."_
+
+**Feature Priorities (MVP vs. Later)**
 
 List features as **Must Have**, **Should Have**, or **Won't Have (now)**:
 
@@ -65,6 +75,8 @@ List features as **Must Have**, **Should Have**, or **Won't Have (now)**:
 - **Database**: Relational (PostgreSQL/MySQL) or NoSQL? Managed service or self-hosted?
 - **Hosting / deployment**: Cloud provider preference? Containerised (Docker/K8s) or PaaS?
 - **CI/CD**: GitHub Actions, GitLab CI, or other?
+- **Browser support**: What are the minimum browser versions to support?
+- **Device support**: Are there specific mobile, tablet, and desktop requirements?
 - **Existing integrations**: Any third-party services that must be connected (Stripe, SendGrid, etc.)?
 
 ---
