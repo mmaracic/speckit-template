@@ -70,24 +70,25 @@ Every mandatory bullet with an `FE-` or `FE-CHECK-` ID must be copied into the g
 - **MANDATORY:** [FE-023] **Component types**: Use function components with React.FC or explicit prop types, avoid class components.
 - **MANDATORY:** [FE-024] **File content**: One component per file, with the filename matching the component name. Model and API files can export multiple related types/interfaces.
 - **MANDATORY:** [FE-025] **Refs**: Do not use refs hooks.
+- **MANDATORY:** [FE-026] **Function responsibility**: Functions must do one thing and do it well. If a function is doing more than one thing, it should be refactored into smaller functions.
 ---
 
 ### 8. Performance Standards
 
-- **MANDATORY:** [FE-026] **Memoisation policy**: Use `React.memo` / `useMemo` / `useCallback` when necessary to prevent expensive re-renders, but avoid premature optimization.
+- **MANDATORY:** [FE-027] **Memoisation policy**: Use `React.memo` / `useMemo` / `useCallback` when necessary to prevent expensive re-renders, but avoid premature optimization.
 ---
 
 ### 9. Security
 
-- **MANDATORY:** [FE-027] **Token storage**: Auth tokens are stored in httpOnly cookies. `localStorage` is forbidden
-- **MANDATORY:** [FE-028] **XSS prevention**: `dangerouslySetInnerHTML` is banned. A Content Security Policy (CSP) header is enforced.
-- **MANDATORY:** [FE-029] **CSRF protection**: State-mutating requests must be protected (SameSite cookies, CSRF token)
-- **MANDATORY:** [FE-030] **Sensitive data in state**: Tokens, passwords, or PII must not be stored in global state or browser storage.
-- **MANDATORY:** [FE-031] **Third-party scripts**: Third-party scripts (analytics, chat widgets) must be reviewed and sandboxed.
-- **MANDATORY:** [FE-032] **Dependency auditing**: `npm audit` / `pnpm audit` must be run in CI with a fail threshold.
-- **MANDATORY:** [FE-033] **Environment variables**: All `VITE_` prefixed variables must be non-sensitive by policy. (Vite inlines them into the bundle)
-- **MANDATORY:** [FE-034] **Subresource Integrity (SRI)**: Externally loaded scripts and stylesheets must be integrity-checked.
-- **MANDATORY:** [FE-035] **Open redirect prevention**: Internal navigation targets must be validated before redirect.
+- **MANDATORY:** [FE-028] **Token storage**: Auth tokens are stored in httpOnly cookies. `localStorage` is forbidden
+- **MANDATORY:** [FE-029] **XSS prevention**: `dangerouslySetInnerHTML` is banned. A Content Security Policy (CSP) header is enforced.
+- **MANDATORY:** [FE-030] **CSRF protection**: State-mutating requests must be protected (SameSite cookies, CSRF token)
+- **MANDATORY:** [FE-031] **Sensitive data in state**: Tokens, passwords, or PII must not be stored in global state or browser storage.
+- **MANDATORY:** [FE-032] **Third-party scripts**: Third-party scripts (analytics, chat widgets) must be reviewed and sandboxed.
+- **MANDATORY:** [FE-033] **Dependency auditing**: `npm audit` / `pnpm audit` must be run in CI with a fail threshold.
+- **MANDATORY:** [FE-034] **Environment variables**: All `VITE_` prefixed variables must be non-sensitive by policy. (Vite inlines them into the bundle)
+- **MANDATORY:** [FE-035] **Subresource Integrity (SRI)**: Externally loaded scripts and stylesheets must be integrity-checked.
+- **MANDATORY:** [FE-036] **Open redirect prevention**: Internal navigation targets must be validated before redirect.
 
 ---
 
@@ -138,3 +139,4 @@ _Add project-specific overrides or additions to the principles in Section 1. Use
 - [ ] [FE-CHECK-036] Will the UI use themes?
 - [ ] [FE-CHECK-037] Will the UI support multiple languages (i18n)?
 - [ ] [FE-CHECK-038] Will the UI have a dark mode?
+- [ ] [FE-CHECK-039] Does each function have a single responsibility, and are functions that do more than one thing refactored into smaller functions?

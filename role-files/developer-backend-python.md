@@ -120,28 +120,29 @@ Every mandatory bullet with an `BE-` or `BE-CHECK-` ID must be copied into the g
 - **MANDATORY:** [BE-061] **Composition over inheritance**: Prefer composition over inheritance to promote flexibility and maintainability.
 - **MANDATORY:** [BE-062] **No circular dependencies**: Avoid circular dependencies between modules and layers to ensure a clean architecture and prevent import issues.
 - **MANDATORY:** [BE-063] **Design patterns**: Use appropriate design patterns to solve common problems and improve code maintainability (factory, singleton, strategy, observer etc.).
+- **MANDATORY:** [BE-064] **Function responsibility**: Functions must do one thing and do it well. If a function is doing more than one thing, it should be refactored into smaller functions.
 
 ---
 
 ### 10. Background Tasks & Async Patterns
 
-- **MANDATORY:** [BE-064] **Background jobs**: Use FastAPI `BackgroundTasks`.
-- **MANDATORY:** [BE-065] **Scheduled tasks**: Use APScheduler.
-- **MANDATORY:** [BE-066] **Long-running operations**: Use async endpoints + webhooks for callbacks, or a message broker (e.g. RabbitMQ, Kafka) for event-driven processing.
-- **MANDATORY:** [BE-067] **Event publishing**: Use Kafka.
+- **MANDATORY:** [BE-065] **Background jobs**: Use FastAPI `BackgroundTasks`.
+- **MANDATORY:** [BE-066] **Scheduled tasks**: Use APScheduler.
+- **MANDATORY:** [BE-067] **Long-running operations**: Use async endpoints + webhooks for callbacks, or a message broker (e.g. RabbitMQ, Kafka) for event-driven processing.
+- **MANDATORY:** [BE-068] **Event publishing**: Use Kafka.
 
 ---
 
 ### 11. API Design Conventions
 
-- **MANDATORY:** [BE-068] **API style**: RESTful JSON APIs with consistent conventions across all endpoints.
-- **MANDATORY:** [BE-069] **API versioning**: Include version in the URL path (e.g. `/api/v1/users`).
-- **MANDATORY:** [BE-070] **URL style**: kebab-case paths (`/user-profiles`).
-- **MANDATORY:** [BE-071] **HTTP verbs**: Standard REST semantics (GET read, POST create, PUT replace, PATCH update, DELETE remove).
-- **MANDATORY:** [BE-072] **Pagination**: Offset-based pagination with `?page=1&size=20` query parameters, and total count in response metadata.
-- **MANDATORY:** [BE-073] **Filtering & sorting**: Query-parameter conventions (e.g. `?sort=-created_at&filter[status]=active`).
-- **MANDATORY:** [BE-074] **Envelope vs. bare responses**: `{ "data": ..., "meta": ... }` wrapper.
-- **MANDATORY:** [BE-075] **Date/time format**: ISO 8601 UTC strings everywhere.
+- **MANDATORY:** [BE-069] **API style**: RESTful JSON APIs with consistent conventions across all endpoints.
+- **MANDATORY:** [BE-070] **API versioning**: Include version in the URL path (e.g. `/api/v1/users`).
+- **MANDATORY:** [BE-071] **URL style**: kebab-case paths (`/user-profiles`).
+- **MANDATORY:** [BE-072] **HTTP verbs**: Standard REST semantics (GET read, POST create, PUT replace, PATCH update, DELETE remove).
+- **MANDATORY:** [BE-073] **Pagination**: Offset-based pagination with `?page=1&size=20` query parameters, and total count in response metadata.
+- **MANDATORY:** [BE-074] **Filtering & sorting**: Query-parameter conventions (e.g. `?sort=-created_at&filter[status]=active`).
+- **MANDATORY:** [BE-075] **Envelope vs. bare responses**: `{ "data": ..., "meta": ... }` wrapper.
+- **MANDATORY:** [BE-076] **Date/time format**: ISO 8601 UTC strings everywhere.
 
 ---
 
@@ -230,3 +231,4 @@ _Add project-specific overrides or additions to the principles in Section 1. Use
 - [ ] [BE-CHECK-074] Are appropriate design patterns (factory, singleton, strategy, observer, etc.) applied to solve common problems and improve maintainability?
 - [ ] [BE-CHECK-075] Do unit tests focus on individual functions and methods in isolation, use mocks for external dependencies, run fast, and cover edge cases and error handling?
 - [ ] [BE-CHECK-076] Do all the databases have defined provider (e.g., PostgreSQL, MySQL) and type (e.g., relational, NoSQL)?
+- [ ] [BE-CHECK-077] Does each function have a single responsibility, and are functions that do more than one thing refactored into smaller functions?
