@@ -91,6 +91,7 @@ Use `/speckit.plan` command to generate implementation plan based on the specifi
 * Bullets in the constitution-architect do not have stable IDs (for example ARCH-001), so one-to-one mapping is hard to enforce.
 * Section 2 checklist items in constitution-architect are not marked mandatory and are phrased as questions, so they are treated as prompts rather than constitutional obligations.
 * It doesnt matter which file is changed - constitution-template or constitution-architect but it is always better to change role file over which we have full ownership to avoid future conflicts with speckit, LLM does not use any inherent precedence rules.
+* If multiple phases are run in the same conversation i.e. context window, there is a risk of mixing up the outputs and losing traceability. This can lead to incomplete or inconsistent documentation and implementation. To mitigate this risk, it is recommended to run different phases in separate conversations and ensure that each phase has a clear input and output that can be easily traced and reviewed.
 
 ## Errors
 * While running `/speckit.constitution` bug https://github.com/github/spec-kit/issues/908 was encountered. Constitution was generated and templates updated, so it seems to be only an inconvenience.

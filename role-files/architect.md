@@ -40,7 +40,7 @@ Every mandatory bullet with an `ARCH-` or `ARCH-CHECK-` ID must be copied into t
 
 - **MANDATORY:** [ARCH-015] **SQL vs NoSQL**: Use open source relational databases (PostgreSQL, MySQL) where reliability and strong consistency guarantees are required. Use NoSQL databases (MongoDB, DynamoDB) when flexible schemas, horizontal scalability or high write throughput are needed.
 - **MANDATORY:** [ARCH-016] **Database connection pooling**: Use connection pooling
-- **MANDATORY:** [ARCH-017] **Caching layer**: Add a caching layer (Redis, Memcached) for frequently accessed data or expensive computations when speed is top priority. Use cache-aside pattern for simplicity and control over cache invalidation.
+- **MANDATORY:** [ARCH-017] **Caching layer**: Add a caching layer (Redis, Memcached) for frequently accessed data or expensive computations when speed is top priority. Use cache-aside pattern for simplicity and control over cache invalidation. Define when cache is not appropriate or needed.
 - **MANDATORY:** [ARCH-018] **File/blob storage**: Use cloud blob storage (Azure Blob Storage, AWS S3) for large files, unstructured data or binary data that doesnt need elaborate querying capabilities. Use database BLOBs for json when transactional consistency with other data or advanced querying capabilities are required.
 - **MANDATORY:** [ARCH-019] **Audit**: Add auditing in any enterprise application. Minimum audit includes create and update date and user. Add more advanced versioned change history if required by the domain.
 
@@ -66,7 +66,7 @@ Every mandatory bullet with an `ARCH-` or `ARCH-CHECK-` ID must be copied into t
 - **MANDATORY:** [ARCH-027] **Event-driven architecture**: Use events to decouple services and enable asynchronous communication. Define clear event schemas and topics.
 - **MANDATORY:** [ARCH-028] **Message broker**: Use a message broker (Kafka, RabbitMQ, Azure Service Bus) for event distribution and processing.
 - **MANDATORY:** [ARCH-029] **Event versioning**: Maintain backward compatibility for events and use versioning when breaking changes are necessary.
-- **MANDATORY:** [ARCH-030] **Event storage**: Persist events in an event store or database for auditing and replay purposes.
+- **MANDATORY:** [ARCH-030] **Event storage**: Define if persisting events in an event store or database for auditing and replay purposes is required.
 - **MANDATORY:** [ARCH-031] **Event processing**: Use idempotent event handlers and implement retry logic to handle transient failures in event processing.
 - **MANDATORY:** [ARCH-032] **Scaling event processing**: Use consumer groups and partitioning in Kafka to scale event processing horizontally. Describe the expected load and scaling strategy for event processing in the architecture design. Describe scaling limitations and bottlenecks of the chosen event processing approach and how they will be mitigated.
 - **MANDATORY:** [ARCH-033] **Eventual consistency**: If using an event-driven architecture, eventual consistency has to be detected and pointed out in the design. Event-driven communication has to be avoided for critical user flows and operations that require strong consistency guarantees.

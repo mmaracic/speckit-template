@@ -131,3 +131,6 @@ The Spec-kit process ensures that the load-bearing decisions are documented, rev
 ### Links for One Way vs Two Way Doors:
 * https://www.inc.com/jeff-haden/amazon-founder-jeff-bezos-this-is-how-successful-people-make-such-smart-decisions.html
 * https://medium.com/one-to-n/one-way-two-way-door-decisions-a0e29029e200
+
+### Links for umbrella activities:
+* https://www.geeksforgeeks.org/software-engineering/umbrella-activities-in-software-engineering/
