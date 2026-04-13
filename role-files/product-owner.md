@@ -55,51 +55,53 @@ Every mandatory bullet with an `PO-` or `PO-CHECK-` ID must be copied into the g
     > _e.g. "User authentication is a Must Have feature for MVP, while multi-tenant support is a Should Have for post-MVP."_
 - **MANDATORY:** [PO-016] **Feature to story mapping**: Features must be decomposed into user stories in such way that each story contains only one actor and only one workflow, to ensure clear ownership and avoid acceptance criteria ambiguity.
     > _e.g. "The feature 'User Management' can be decomposed into stories like: 'As an admin, I want to create a new user, so that I can manage access to the system.'_
+- **MANDATORY:** [PO-017] **Acceptance criteria**: Each user story must have clear and unambiguous acceptance criteria that define the conditions under which the story is considered complete.
+    > _e.g. "Given a registered user, when they attempt to log in with valid credentials, then they should be granted access to their dashboard."_
 ---
 
 ### 5. Non-Functional Requirements
 
-- **MANDATORY:** [PO-017] **Performance**: Define the maximum acceptable page load time and API response SLA.
-- **MANDATORY:** [PO-018] **Availability**: Define the required uptime (e.g. 99.9%) and acceptable maintenance windows.
-- **MANDATORY:** [PO-019] **Scalability**: Define the expected concurrent users at launch and the 12-month horizon.
-- **MANDATORY:** [PO-020] **Security**: Define the authentication method (OAuth2, SSO, username/password) and role-based access requirements.
+- **MANDATORY:** [PO-018] **Performance**: Define the maximum acceptable page load time and API response SLA.
+- **MANDATORY:** [PO-019] **Availability**: Define the required uptime (e.g. 99.9%) and acceptable maintenance windows.
+- **MANDATORY:** [PO-020] **Scalability**: Define the expected concurrent users at launch and the 12-month horizon.
+- **MANDATORY:** [PO-021] **Security**: Define the authentication method (OAuth2, SSO, username/password) and role-based access requirements.
 
 ---
 
 ### 6. Technology Constraints
 
-- **MANDATORY:** [PO-021] **Browser support**: Define the minimum browser versions to support.
-- **MANDATORY:** [PO-022] **Device support**: Define the mobile, tablet, and desktop requirements.
-- **MANDATORY:** [PO-023] **Existing integrations**: Define any third-party services that must be connected (Stripe, SendGrid, etc.).
-- **MANDATORY:** [PO-024] **Application types**: Define the types of applications to be supported (web, mobile, desktop, etc.).
-- **MANDATORY:** [PO-025] **Application platforms**: Define the platforms on which the applications must run (iOS, Android, Windows, macOS, Linux, etc.).
-- **MANDATORY:** [PO-026] **AApplication technologies**: Define any required technologies or frameworks (React, Flutter, Electron, etc.) or explicitly state that there are no technology constraints.
-- **MANDATORY:** [PO-027] **Offline support**: Define whether offline functionality or PWA support is required or explicitly state that it is not required.
-- **MANDATORY:** [PO-028] **Analytics**: Define whether analytics or telemetry requirements exist, and if so, which platform to use (Google Analytics, Mixpanel, etc.) or explicitly state that there are no analytics requirements.
+- **MANDATORY:** [PO-022] **Browser support**: Define the minimum browser versions to support.
+- **MANDATORY:** [PO-023] **Device support**: Define the mobile, tablet, and desktop requirements.
+- **MANDATORY:** [PO-024] **Existing integrations**: Define any third-party services that must be connected (Stripe, SendGrid, etc.).
+- **MANDATORY:** [PO-025] **Application types**: Define the types of applications to be supported (web, mobile, desktop, etc.).
+- **MANDATORY:** [PO-026] **Application platforms**: Define the platforms on which the applications must run (iOS, Android, Windows, macOS, Linux, etc.).
+- **MANDATORY:** [PO-027] **Application technologies**: Define any required technologies or frameworks (React, Flutter, Electron, etc.) or explicitly state that there are no technology constraints.
+- **MANDATORY:** [PO-028] **Offline support**: Define whether offline functionality or PWA support is required or explicitly state that it is not required.
+- **MANDATORY:** [PO-029] **Analytics**: Define whether analytics or telemetry requirements exist, and if so, which platform to use (Google Analytics, Mixpanel, etc.) or explicitly state that there are no analytics requirements.
 
 ---
 
 ### 7. Content & Data
 
-- **MANDATORY:** [PO-029] **Content ownership**: Define who owns and maintains the website content after launch.
-- **MANDATORY:** [PO-030] **CMS requirement**: Define if there is a CMS requirement, or if content will be code-managed.
-- **MANDATORY:** [PO-031] **Data seeding**: Define if there are initial data-seeding requirements (demo data, reference data).
-- **MANDATORY:** [PO-032] **Data retention**: Define the data-retention policy.
+- **MANDATORY:** [PO-030] **Content ownership**: Define who owns and maintains the website content after launch.
+- **MANDATORY:** [PO-031] **CMS requirement**: Define if there is a CMS requirement, or if content will be code-managed.
+- **MANDATORY:** [PO-032] **Data seeding**: Define if there are initial data-seeding requirements (demo data, reference data).
+- **MANDATORY:** [PO-033] **Data retention**: Define the data-retention policy.
 
 ---
 
 ### 8. Quality Gates
 
-- **MANDATORY:** [PO-033] **Testing**: Define the minimum code coverage threshold.
-- **MANDATORY:** [PO-034] **Code review**: Define the PR approval count and required reviewers.
-- **MANDATORY:** [PO-035] **Definition of Done**: Define the criteria that must be met for a feature to be considered complete.
-- **MANDATORY:** [PO-036] **Release cadence**: Define the release cadence (continuous deployment, weekly releases, or milestone-based).
+- **MANDATORY:** [PO-034] **Testing**: Define the minimum code coverage threshold.
+- **MANDATORY:** [PO-035] **Code review**: Define the PR approval count and required reviewers.
+- **MANDATORY:** [PO-036] **Definition of Done**: Define the criteria that must be met for a feature to be considered complete.
+- **MANDATORY:** [PO-037] **Release cadence**: Define the release cadence (continuous deployment, weekly releases, or milestone-based).
 
 ---
 
 ### 9. Risks & Assumptions
 
-- **MANDATORY:** [PO-037] **Risks and assumptions**: List known risks and the assumptions being made.
+- **MANDATORY:** [PO-038] **Risks and assumptions**: List known risks and the assumptions being made.
 
 ---
 
@@ -150,3 +152,4 @@ _Add project-specific overrides or additions to the principles in Section 1. Use
 - [ ] [PO-CHECK-036] Are the types of applications to be developed (web, mobile, desktop, etc.) defined?
 - [ ] [PO-CHECK-037] Are the platforms on which the applications must run (iOS, Android, Windows, macOS, Linux, etc.) defined?
 - [ ] [PO-CHECK-038] Are required technologies or frameworks (React, Flutter, Electron, etc.) defined, or is it explicitly stated that there are no technology constraints?
+- [ ] [PO-CHECK-039] Does each user story have clear and unambiguous acceptance criteria that define the conditions under which the story is considered complete?
