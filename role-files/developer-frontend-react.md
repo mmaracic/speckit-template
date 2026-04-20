@@ -1,100 +1,112 @@
 # Frontend Developer React Guidelines & Constraints
 
 First section of this document captures react developer constitution principles to be used when generating the project constitution via `speckit.constitution`. Second section captures project-specific overrides and additions. Third section defines the gate checklists. Here there is only one checklist and it applies to the task and implementation speckit steps.
-Every mandatory bullet with an `FE-` or `FE-CHECK-` ID must be copied into the generated constitution and downstream plan checks with one-to-one traceability. Mandatory bullets must not be skipped, merged away, or summarized.
+Every mandatory bullet with an `FE-` or `FE-CHECK-` ID in this file is the source of truth and MUST be referenced by the generated constitution and downstream implementation checks. Mandatory bullets must not be skipped, merged away, or summarized.
 ---
 
-## 0. Copy and Traceability Principles
+## 0. Reference and Source-of-Truth Principles
 
-- **MANDATORY:** [FE-COPY-001] Every mandatory source item in this file must be copied into generated constitution artifacts.
-- **MANDATORY:** [FE-COPY-002] Mandatory source items must not be skipped, merged, or summarized into generic wording.
-- **MANDATORY:** [FE-COPY-003] If a generated constitution needs more sections or principles to preserve fidelity, add them instead of collapsing items.
-- **MANDATORY:** [FE-COPY-004] Generated constitution artifacts must include a traceability matrix that maps each `FE-` and `FE-CHECK-` ID.
-- **MANDATORY:** [FE-COPY-005] Each source ID must map to exactly one explicit constitution clause or one explicit plan-check entry, unless a justified exception is documented.
+- **MANDATORY:** [FE-REF-001] This role file is the authoritative source for frontend-react governance requirements.
+- **MANDATORY:** [FE-REF-002] Generated constitution artifacts MUST reference this role file path and revision metadata instead of copying all mandatory bullets.
+- **MANDATORY:** [FE-REF-003] Mandatory source items must not be skipped, merged, or summarized into generic wording when generating implementation checks.
+- **MANDATORY:** [FE-REF-004] Implementation artifacts MUST explicitly cover each `FE-CHECK-` item with evidence, sourced from this role file.
+- **MANDATORY:** [FE-REF-005] Any justified exception to a mandatory source item MUST be explicitly documented with rationale and approval.
 
 ---
 
 ## 1. Mandatory Constitution principles
 ### 1. React Setup & Tooling
 
-- **MANDATORY:** [FE-001] **Build tool**: Mandatory use of Vite
-- **MANDATORY:** [FE-002] **Language**: Mandatory use of TypeScript
-- **MANDATORY:** [FE-003] **Package manager**: Use npm
-- **MANDATORY:** [FE-004] **Monorepo**: Frontend is a separate repository from backend
-- **MANDATORY:** [FE-005] **Node version**: Minimum node version 22
+- **MANDATORY:** [FE-01-01] **Build tool**: Mandatory use of Vite
+- **MANDATORY:** [FE-01-02] **Language**: Mandatory use of TypeScript
+- **MANDATORY:** [FE-01-03] **Package manager**: Use npm
+- **MANDATORY:** [FE-01-04] **Monorepo**: Frontend is a separate folder from backend
+- **MANDATORY:** [FE-01-05] **Node version**: Minimum node version 22
+- **MANDATORY:** [FE-01-06] **Dependency versions**: Use exact pinned versions for all dependencies in `package.json` file, with a shared lockfile committed to the repo.
 
 ---
 
 ### 2. UI Framework & Design Systems
 
-- **MANDATORY:** [FE-006] **Component library**: Axios for API calls, Shadcn/ui for components
-- **MANDATORY:** [FE-007] **CSS approach**: Use styled-components and Tailwind CSS
+- **MANDATORY:** [FE-02-01] **Component library**: Axios for API calls, Shadcn/ui for components
+- **MANDATORY:** [FE-02-02] **CSS approach**: Use styled-components and Tailwind CSS
 
 ---
 
 ### 3. State Management
 
-- **MANDATORY:** [FE-008] **Global state**: Use React Context for global state management
+- **MANDATORY:** [FE-03-01] **Global state**: Use React Context for global state management
+
 ---
 
 ### 4. Routing
 
-- **MANDATORY:** [FE-009] **Router library**: Use React Router for client-side routing
+- **MANDATORY:** [FE-04-01] **Router library**: Use React Router for client-side routing
+
 ---
 
 ### 5. API Integration
 
-- **MANDATORY:** [FE-010] **How is the API base URL configured**: Use environment variables (e.g., `VITE_API_BASE_URL`) for API base URL configuration, and ensure that these variables are properly documented and included in the project setup instructions.
+- **MANDATORY:** [FE-05-01] **How is the API base URL configured**: Use environment variables (e.g., `VITE_API_BASE_URL`) for API base URL configuration, and ensure that these variables are properly documented and included in the project setup instructions.
 
 ---
 
 ### 6. Testing
 
-- **MANDATORY:** [FE-011] **Unit / component tests**: Use Vitest + React Testing Library
+- **MANDATORY:** [FE-06-01] **Unit / component tests**: Use Vitest + React Testing Library
 
 ---
 
 ### 7. Code Quality & Conventions
 
-- **MANDATORY:** [FE-012] **Linter**: Use ESLint with standard ruleset
-- **MANDATORY:** [FE-013] **Formatter**: Use Prettier with shared config committed to the repo
-- **MANDATORY:** [FE-014] **Naming conventions**: Use PascalCase naming for components, camelCase for hooks, kebab-case for files
-- **MANDATORY:** [FE-015] **Folder structure**: Co-locate components with their styles and tests in a folder
-- **MANDATORY:** [FE-016] **Page folder structure**: Create a file for each page under `src/pages`
-- **MANDATORY:** [FE-017] **Component folder structure**: Create a file for each reusable component under `src/components`, with the component file, styles, and tests co-located inside.
-- **MANDATORY:** [FE-018] **Api layer**: Create a dedicated folder for API client code
-- **MANDATORY:** [FE-019] **Hooks**: Create a dedicated folder for custom hooks
-- **MANDATORY:** [FE-020] **Model folder**: Create a dedicated folder for shared TypeScript types and interfaces
-- **MANDATORY:** [FE-021] **Import conventions**: Absolute imports from `src/` only,
-- **MANDATORY:** [FE-022] **Effect hook**: Minimize the use of `useEffect` for side effects.
-- **MANDATORY:** [FE-023] **Component types**: Use function components with React.FC or explicit prop types, avoid class components.
-- **MANDATORY:** [FE-024] **File content**: One component per file, with the filename matching the component name. Model and API files can export multiple related types/interfaces.
-- **MANDATORY:** [FE-025] **Refs**: Do not use refs hooks.
-- **MANDATORY:** [FE-026] **Function responsibility**: Functions must do one thing and do it well. If a function is doing more than one thing, it should be refactored into smaller functions.
+- **MANDATORY:** [FE-07-01] **Linter**: Use ESLint with standard ruleset
+- **MANDATORY:** [FE-07-02] **Formatter**: Use Prettier with shared config committed to the repo
+- **MANDATORY:** [FE-07-03] **Naming conventions**: Use PascalCase naming for components, camelCase for hooks, kebab-case for files
+- **MANDATORY:** [FE-07-04] **Folder structure**: Co-locate components with their styles and tests in a folder
+- **MANDATORY:** [FE-07-05] **Page folder structure**: Create a file for each page under `src/pages`
+- **MANDATORY:** [FE-07-06] **Component folder structure**: Create a file for each reusable component under `src/components`, with the component file, styles, and tests co-located inside.
+- **MANDATORY:** [FE-07-07] **Api layer**: Create a dedicated folder for API client code
+- **MANDATORY:** [FE-07-08] **Hooks**: Create a dedicated folder for custom hooks
+- **MANDATORY:** [FE-07-09] **Model folder**: Create a dedicated folder for shared TypeScript types and interfaces
+- **MANDATORY:** [FE-07-10] **Import conventions**: Absolute imports from `src/` only,
+- **MANDATORY:** [FE-07-11] **Effect hook**: Minimize the use of `useEffect` for side effects.
+- **MANDATORY:** [FE-07-12] **Component types**: Use function components with React.FC or explicit prop types, avoid class components.
+- **MANDATORY:** [FE-07-13] **File content**: One component per file, with the filename matching the component name. Model and API files can export multiple related types/interfaces.
+- **MANDATORY:** [FE-07-14] **Refs**: Do not use refs hooks.
+- **MANDATORY:** [FE-07-15] **State forwarding**: Forward state and handlers via props instead of using refs to manipulate child components. This promotes a unidirectional data flow and makes the component behavior more predictable and easier to debug.
+- **MANDATORY:** [FE-07-16] **Function responsibility**: Functions must do one thing and do it well. If a function is doing more than one thing, it should be refactored into smaller functions.
+
 ---
 
 ### 8. Performance Standards
 
-- **MANDATORY:** [FE-027] **Memoisation policy**: Use `React.memo` / `useMemo` / `useCallback` when necessary to prevent expensive re-renders, but avoid premature optimization.
+- **MANDATORY:** [FE-08-01] **Memoisation policy**: Use `React.memo` / `useMemo` / `useCallback` when necessary to prevent expensive re-renders, but avoid premature optimization.
+
 ---
 
 ### 9. Security
 
-- **MANDATORY:** [FE-028] **Token storage**: Auth tokens are stored in httpOnly cookies. `localStorage` is forbidden
-- **MANDATORY:** [FE-029] **XSS prevention**: `dangerouslySetInnerHTML` is banned. A Content Security Policy (CSP) header is enforced.
-- **MANDATORY:** [FE-030] **CSRF protection**: State-mutating requests must be protected (SameSite cookies, CSRF token)
-- **MANDATORY:** [FE-031] **Sensitive data in state**: Tokens, passwords, or PII must not be stored in global state or browser storage.
-- **MANDATORY:** [FE-032] **Third-party scripts**: Third-party scripts (analytics, chat widgets) must be reviewed and sandboxed.
-- **MANDATORY:** [FE-033] **Dependency auditing**: `npm audit` / `pnpm audit` must be run in CI with a fail threshold.
-- **MANDATORY:** [FE-034] **Environment variables**: All `VITE_` prefixed variables must be non-sensitive by policy. (Vite inlines them into the bundle)
-- **MANDATORY:** [FE-035] **Subresource Integrity (SRI)**: Externally loaded scripts and stylesheets must be integrity-checked.
-- **MANDATORY:** [FE-036] **Open redirect prevention**: Internal navigation targets must be validated before redirect.
+- **MANDATORY:** [FE-09-01] **Token storage**: Auth tokens are stored in httpOnly cookies. `localStorage` is forbidden
+- **MANDATORY:** [FE-09-02] **XSS prevention**: `dangerouslySetInnerHTML` is banned. A Content Security Policy (CSP) header is enforced.
+- **MANDATORY:** [FE-09-03] **CSRF protection**: State-mutating requests must be protected (SameSite cookies, CSRF token)
+- **MANDATORY:** [FE-09-04] **Sensitive data in state**: Tokens, passwords, or PII must not be stored in global state or browser storage.
+- **MANDATORY:** [FE-09-05] **Third-party scripts**: Third-party scripts (analytics, chat widgets) must be reviewed and sandboxed.
+- **MANDATORY:** [FE-09-06] **Dependency auditing**: `npm audit` / `pnpm audit` must be run in CI with a fail threshold.
+- **MANDATORY:** [FE-09-07] **Environment variables**: All `VITE_` prefixed variables must be non-sensitive by policy. (Vite inlines them into the bundle)
+- **MANDATORY:** [FE-09-08] **Subresource Integrity (SRI)**: Externally loaded scripts and stylesheets must be integrity-checked.
+- **MANDATORY:** [FE-09-09] **Open redirect prevention**: Internal navigation targets must be validated before redirect.
+
+---
+
+### 10. Task decomposition
+
+- **MANDATORY:** [FE-10-01] Must decompose stories into tasks in such a way that each task corresponds to one container i.e. application service, database, or other infrastructure component. This principle fits different repo structures (monorepo with multiple services, or separate repos per service) and ensures that each task has a clear implementation scope and owner and that it can be tested and deployed independently.
 
 ---
 
 ## 2. Project-Specific Principles
 
-_Add project-specific overrides or additions to the principles in Section 1. Use the same MANDATORY bullet format with sequential `[FE-NNN]` IDs. Leave this section empty if there are no project-specific constraints._
+_Add project-specific overrides or additions to the principles in Section 1. Use the same MANDATORY bullet format with subsection-scoped `[FE-SS-II]` IDs. Leave this section empty if there are no project-specific constraints._
 
 ---
 
@@ -140,3 +152,6 @@ _Add project-specific overrides or additions to the principles in Section 1. Use
 - [ ] [FE-CHECK-037] Will the UI support multiple languages (i18n)?
 - [ ] [FE-CHECK-038] Will the UI have a dark mode?
 - [ ] [FE-CHECK-039] Does each function have a single responsibility, and are functions that do more than one thing refactored into smaller functions?
+- [ ] [FE-CHECK-040] Are stories decomposed into tasks that correspond to one container (application service, database, or infrastructure component) to ensure clear implementation scope, ownership, and independent testing and deployment?
+- [ ] [FE-CHECK-041] Is the implementation and tests, when it exists, fully aligned with documentation, constitution, specification and tasks?
+- [ ] [FE-CHECK-042] Do the dependencies in `package.json` have exact pinned versions?
