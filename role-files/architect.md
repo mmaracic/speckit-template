@@ -40,6 +40,8 @@ Every mandatory bullet with an `ARCH-` or `ARCH-CHECK-` ID in this file is the s
 ### 3. Data Layer
 
 - **MANDATORY:** [ARCH-03-01] **SQL vs NoSQL**: Use open source relational databases (PostgreSQL, MySQL) where reliability and strong consistency guarantees are required. Use NoSQL databases (MongoDB, DynamoDB) when flexible schemas, horizontal scalability or high write throughput are needed.
+-  **MANDATORY:** [ARCH-03-02] **Data integrity** Must define data integrity constrains for each component.
+-  **MANDATORY:** [ARCH-03-04] **Transactions and recovery** Define transaction boundaries in each components and recovery mechanisms whenever a transaction has to be rolled back. Two point commits are not available. Chained commits, outbox pattern and listen to yourself pattern can be considered. Complicated saga patterns must be avoided.
 - **MANDATORY:** [ARCH-03-02] **Database connection pooling**: Use connection pooling
 - **MANDATORY:** [ARCH-03-03] **Caching layer**: Add a caching layer (Redis, Memcached) for frequently accessed data or expensive computations when speed is top priority. Use cache-aside pattern for simplicity and control over cache invalidation.
 - **MANDATORY:** [ARCH-03-04] **File/blob storage**: Use cloud blob storage (Azure Blob Storage, AWS S3) for large files, unstructured data or binary data that doesnt need elaborate querying capabilities. Use database BLOBs for json when transactional consistency with other data or advanced querying capabilities are required.
