@@ -58,9 +58,9 @@ Add role template files.
 Add role files that will be used by speckit constitution process.
 
 ### 6. Generate constitution
-Use `/speckit.constitution` command with instructions to process role folder as parameter to generate constitution based on the role files and review it. Forbid usage of documentation folder in the constitution instructions to avoid mixing generated constitution with project/feature documentation.
+Use `/speckit.constitution` command with instructions to process role folder as parameter to generate constitution based on the role files and review it. Forbid usage of documentation folder in the constitution instructions to avoid mixing generated constitution with project/feature documentation. Make sure that the template consistency is checked.
 ```
-/speckit.constitution Use role files in the role-files/ folder. Do not use any other files or folders.
+/speckit.constitution Derive constitution content from role-files/ only. Skip documentation/ and other project folders. Run the full template consistency check against .specify/templates/.
 ```
 
 ### 7. Validate constitution
@@ -69,12 +69,20 @@ Ensure generated constitution is written to `.specify/memory/constitution.md` an
 	`.specify/templates/spec-template.md`, and
 	`.specify/templates/tasks-template.md`.
 
+> *Note*:
+It can happen that role files, that are reused in the project conflict with business and technical requirements document. This will cause overrides and ambiguitis that have to be resolved down the line. The recommendation is to always make sure beforehand that the role files and therefore the constitution are in line with the project requirements.
+
 ### 8. Generate specification
 Use `/speckit.specify` command with instructions to process documentation folder or specific documentation file as parameter to generate specification based on the project/feature documentation and review it. Pay attention if specification is umbrella or feature specification. Umbrella specification should include whole project documentation as input, while feature specification should include only document or section relevant for the specific feature.
 ```
-/speckit.specify Use documentation files in the documentation/ folder to generate initial umbrella specification.
+/speckit.specify Use documentation files in the documentation/ folder to generate initial umbrella specification. Must check if the specification and all other outputs are aligned with constitution.
 ```
 If `/speckit.specify` is called multiple times, new branch will be created every time. Specification (`spec.md`) and checklist (`requirements.md`) for specification will be generated to in the appropriate feature branch folder under `specs/` (e.g., `specs/001-spec-from-docs/`).
+
+It is possible to update current specification by positioning on the specification branch and running:
+```
+/speckit.specify Use documentation files in the documentation/ folder to update current umbrella specification. Must check if the specification and all other outputs are aligned with constitution.
+```
 
 In specification file verify `FR` items and ensure that they reflect the documentation and constitution requirements. Confirm that `FR` items do not contain hallucinations that are not supported by the documentation or constitution. Also check `Assumptions` sections that might be incorrect because of hallucinations.
 
@@ -88,12 +96,18 @@ Run the command multiple times until all open questions are clarified and blocke
 ### 10. Generate implementation plan
 Use `/speckit.plan` command to generate implementation plan based on the specification and constitution. Review the plan and ensure that all mandatory points from the constitution are addressed in the plan.
 ```
-/speckit.plan
+/speckit.plan If the plan already exists update it. Must validate tasks against the constitution and the specification output.
 ```
 
 Analyze `N/A` items in the plan constitution recheck and ensure they are properly justified and approved.
 
 Umbrella specifications should not progress beyond this step. Every story of umbrella specification should be implemented as a separate feature with its own feature specification that will go through its own speckit process starting from step 6 and continuing to implementation. Feature implementation should use architecture diagrams, documentation, api contracts, events and database model as input and update it as necessary.
+
+### 11. Generate implementation task list
+Run `/speckit.tasks` to generate the implementation task list. Validate against results of all previous phases. Do not rely on any past validations because the assumptions that they are still valid might not be true. The agent will skip validating against constitution because specification already validated against constitution.
+```
+/speckit.tasks Update tasks if they already exist. Must validate tasks against specification, implementation plan and constitution and other outputs from those phases. Must validate explicitly, without relying on past validations.
+```
 
 ## Miro graph upload
 Uses Miro Diagram Migration copilot agent.
@@ -102,6 +116,8 @@ Uses Miro Diagram Migration copilot agent.
 
 ### Role file formats
 * Role file format is different depending on the context (UI/UX design, architecture, frontend development, backend development, etc.) and technology (e.g. for frontend development, it can be React, Angular, Vue, etc.).
+* Section 0 of the role file specifies how the role file principles are maintained in the documents generated during the speckit process.
+* Section 0 has to make sure that all the items and checks are checked in every relevant speckit phase by mandating a completion report.
 * Role file format has 3 sections: 1. General principles that apply to all projects, 2. Project-specific principles, and 3. Checklist for the project. The first two sections are used as input for constitution generation, while the third section is used as a checklist for selected steps to validate that the step satisfies the constitution principles. Checklist section should always include checks for traceability of requirements and other outputs to their source in the documentation or constitution to ensure that there are no hallucinations. If there are requirements or outputs that are not traceable, they should be clarified with the user.
 * If points from role file are not mandatory, they are often skipped or not fully addressed. This leads to incomplete constitution and architectural drift. Solution would be to make all points mandatory and require explicit confirmation in the plan checklist that they addressed. This would ensure that all important architectural decisions are made consciously and documented, reducing the risk of drift and misalignment.
 * “Mandatory” at bullet level tells the generator not to skip the item. But inside the item, phrases like “recommend”, “can”, “good default” still signal soft choice, so the model may preserve intent but rewrite/compress details.
