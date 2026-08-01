@@ -101,12 +101,38 @@ Use `/speckit.plan` command to generate implementation plan based on the specifi
 
 Analyze `N/A` items in the plan constitution recheck and ensure they are properly justified and approved.
 
+Validate all checklists that are part of the `plan.md` file against the constitution, specification and especially role files. Items pertaining to architecture diagrams, ArchUnit tests and ADRs tend to be marked as complete without actually being implemented and fulfilled. Make sure that all items are properly implemented.
+
 Umbrella specifications should not progress beyond this step. Every story of umbrella specification should be implemented as a separate feature with its own feature specification that will go through its own speckit process starting from step 6 and continuing to implementation. Feature implementation should use architecture diagrams, documentation, api contracts, events and database model as input and update it as necessary.
 
 ### 11. Generate implementation task list
 Run `/speckit.tasks` to generate the implementation task list. Validate against results of all previous phases. Do not rely on any past validations because the assumptions that they are still valid might not be true. The agent will skip validating against constitution because specification already validated against constitution.
 ```
 /speckit.tasks Update tasks if they already exist. Must validate tasks against specification, implementation plan and constitution and other outputs from those phases. Must validate explicitly, without relying on past validations.
+```
+
+### 12. Analyze implementation task list
+Analyze the implementation task list using `/speckit.analyze` and ensure that all tasks are properly defined and aligned with the specification, plan and constitution. Ensure that all tasks are traceable to their source in the documentation or constitution to ensure that there are no hallucinations. Use command:
+```
+/speckit.analyze
+```
+
+Select the issues from the problem list that need to be resolved and istruct the agent to resolve them.
+
+### 13. Implement the tasks
+Implement the tasks in the task list using `/speckit.implement`. Use command:
+```
+/speckit.implement Implement phase 0 tasks in the correct order. Do not implement any additional tasks that are not in the selected phase. After an individual task is implemented, validate it against the specification, plan and constitution to ensure that it is properly implemented and that there are no hallucinations. After all tasks in the phase are implemented, validate the whole phase against the specification, plan and constitution to ensure that all tasks are properly implemented and that there are no hallucinations. If there are any issues or design decisions that are not aligned with the specification, plan or constitution, clarify them with the user and update the implementation and all artifacts accordingly.
+```
+
+The implementation tasks are divided into phases that are aligned with the user stories. The tasks also have a dependency order.  
+
+Each phase should be implemented and validated in isolation before moving to the next phase. The implementation should be validated against the specification, plan, constitution and role files to ensure that all requirements are met and that there are no hallucinations.
+
+### 14. Validate implementation - Converge
+Validate the implementation against the specification, plan and constitution. Use command:
+```
+/speckit.converge
 ```
 
 ## Miro graph upload
@@ -148,6 +174,14 @@ Uses Miro Diagram Migration copilot agent.
   * Create Mermaid files in `/diagrams`
   * Validate Mermaid syntax
   * Re-run constitution check with file-path evidence
+
+### Checklist
+Command
+
+```
+/speckit.checklist
+```
+Is for now the only speckit command that is not mentioned or used in the above flow. This is because role files already contain checklists that are used in the constitution and plan phases. Because of that, the checklist command is not needed in the flow at this moment. It can be used to generate additional checklists for other purposes, but it is not part of the main speckit flow.
 
 ### Spec-kit commands
 * If multiple phases are run in the same conversation i.e. context window, there is a risk of mixing up the outputs and losing traceability. This can lead to incomplete or inconsistent documentation and implementation. To mitigate this risk, it is recommended to run different phases in separate conversations and ensure that each phase has a clear input and output that can be easily traced and reviewed.
